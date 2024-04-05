@@ -1,1 +1,1 @@
-import './streaming-client-api.js';
+import './agents-client-api.js';
