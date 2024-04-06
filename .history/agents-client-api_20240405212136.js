@@ -1,4 +1,5 @@
 'use strict';
+import { response } from 'express';
 import DID_API from './api.json' assert { type: 'json' };
 
 if (DID_API.key == '🤫') alert('Please put your api key inside ./api.json and restart..');
@@ -86,8 +87,8 @@ async function createPeerConnection(offer, iceServers) {
   
     if (msg.includes("chat/partial:")) {
       // console.log(decodedMsg)
-     let data = decodeURIComponent(msg.replace("chat/partial:", "")).trim()
-      if(data === "") return
+      response = decodeURIComponent(msg.replace("chat/partial:", "")).trim()
+      if(response === "") return
      else{
         // TODO: change picture to vashnavi's
         document.getElementById("msgHistory").innerHTML += `
@@ -97,7 +98,7 @@ async function createPeerConnection(offer, iceServers) {
             <p class="chat-sender-name">Vashnavi</p>
           </div>
           <p class="chat-msg">
-            ${data}
+            ${response}
           </p>
         </div>
       `

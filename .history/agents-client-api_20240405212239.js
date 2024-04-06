@@ -86,8 +86,8 @@ async function createPeerConnection(offer, iceServers) {
   
     if (msg.includes("chat/partial:")) {
       // console.log(decodedMsg)
-     let data = decodeURIComponent(msg.replace("chat/partial:", "")).trim()
-      if(data === "") return
+     let dara = decodeURIComponent(msg.replace("chat/partial:", "")).trim()
+      if(decodedMsg === "") return
      else{
         // TODO: change picture to vashnavi's
         document.getElementById("msgHistory").innerHTML += `
@@ -97,7 +97,7 @@ async function createPeerConnection(offer, iceServers) {
             <p class="chat-sender-name">Vashnavi</p>
           </div>
           <p class="chat-msg">
-            ${data}
+            ${msg}
           </p>
         </div>
       `

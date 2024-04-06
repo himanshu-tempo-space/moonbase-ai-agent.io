@@ -97,7 +97,7 @@ async function createPeerConnection(offer, iceServers) {
             <p class="chat-sender-name">Vashnavi</p>
           </div>
           <p class="chat-msg">
-            ${data}
+            ${msg}
           </p>
         </div>
       `

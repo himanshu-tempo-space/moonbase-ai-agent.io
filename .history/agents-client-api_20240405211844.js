@@ -74,7 +74,7 @@ async function createPeerConnection(offer, iceServers) {
   // Agent Text Responses - Decoding the responses, pasting to the HTML element
   dc.onmessage = (event) => {
     let msg = event.data
-    console.log(msg)
+    con
     let msgType = "chat/answer:"
     if (msg.includes(msgType)) {
       msg = decodeURIComponent(msg.replace(msgType, ""))
@@ -86,23 +86,21 @@ async function createPeerConnection(offer, iceServers) {
   
     if (msg.includes("chat/partial:")) {
       // console.log(decodedMsg)
-     let data = decodeURIComponent(msg.replace("chat/partial:", "")).trim()
-      if(data === "") return
-     else{
-        // TODO: change picture to vashnavi's
-        document.getElementById("msgHistory").innerHTML += `
+      msg = decodeURIComponent(msg.replace("chat/partial:", ""))
+     
+      decodedMsg = msg
+      // TODO: change picture to vashnavi's
+      document.getElementById("msgHistory").innerHTML += `
         <div class="chat-bubble in-chat">
           <div class="chat-sender">
             <img class="chat-sender-img" src="emma_idle.png" width="20" height="20" type="image" />
             <p class="chat-sender-name">Vashnavi</p>
           </div>
           <p class="chat-msg">
-            ${data}
+            ${decodedMsg}
           </p>
         </div>
       `
-     }
-    
     }
     else {
      
